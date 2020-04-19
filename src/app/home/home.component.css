@@ -1,0 +1,49 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 90vh;
+}
+h5{
+  text-align: center;
+  margin: 20px;
+}
+.conten{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-top: -15%;
+}
+button,input{
+  margin: 10px;
+  margin: 0 auto;
+  width: 40%;
+}
+input{
+  margin-bottom: 10px;
+  width:50%;
+}
+h5{
+  color: aliceblue;
+}
+img{
+  height: 50%;
+  width: 20%;
+  margin:  0 auto;
+  border-radius: 50%;
+
+}
+@media (max-width:760px){
+  input{
+    margin-bottom: 10px;
+    width:70%;
+  }
+  button{
+    width: 50%;
+  }
+  .conten{
+    margin-top: -50%;
+  }
+}

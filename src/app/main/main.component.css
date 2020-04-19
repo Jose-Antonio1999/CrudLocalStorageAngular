@@ -1,0 +1,16 @@
+#viewLinks{
+  margin: 10px;
+  width:45%;
+}
+@media (max-width: 600px) {
+  #viewLinks{
+    width:95%;
+  }
+}
+a{
+  margin: 3px;
+  color: aliceblue;
+}
+#botones{
+  display: flex;
+}

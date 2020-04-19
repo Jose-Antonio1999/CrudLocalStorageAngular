@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Mis Links <i class="fab fa-adn"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+
+      </li>
+    </ul>
+    <div *ngIf="verUsuario" class="onlineUser" data-toggle="modal" data-target="#exampleModal">
+      <li class="fas fa-user"></li><p>{{this.usuarioInjectado.usuario.nombre}}</p>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-hand-spock"></i> Hola {{usuarioInjectado.recuperarUsuario()}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <small><li class="fas fa-cogs"></li> Aquí tenemos algunas opciones para ti: </small>
+        <br>
+          <div class="form-group" *ngIf="mosInputName" >
+            <label for="exampleInputEmail1">Escriba su nuevo nombre</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [formControl]="nuevoNombre">
+          </div>
+        <p *ngIf="!mosInputName"><a id="linknombre" (click)="MostrarCampoNombre()"><i class="fas fa-edit"></i> Cambiar mi nombre</a></p>
+        <p *ngIf="!mosInputName"><a id="linknombre" (click)="eliminarCuenta()"><i class="fas fa-trash"></i> Eliminar mi cuenta</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="GuardarNombre()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

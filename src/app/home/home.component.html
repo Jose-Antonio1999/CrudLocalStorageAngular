@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="conten">
+    <img src="https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_960_720.png" alt="">
+    <h5>Hola, está web te ayudará a guardar tus links favoritos</h5>
+    <input type="text" class="form-control" placeholder="Escriba su nombre" [formControl]="usuario" maxlength="10">
+    <button class="btn btn-primary" (click)="guardarUsuario()">Iniciar con {{usuario.value}}</button>
+  </div>
+</div>

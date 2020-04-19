@@ -1,0 +1,54 @@
+
+<div class="alert alert-success" role="alert" *ngIf="successAlert">
+  {{mensaje}}
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="Alert">
+  {{mensaje}}
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+          <label for="exampleFormControlInput1" style="color: aliceblue;"><i class="fas fa-link"></i> Link</label>
+          <input type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://www.example.com" [formControl]="pLink">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" style="color: aliceblue;">Descripción</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [formControl]="pDescripcion"></textarea>
+        </div>
+        <div id="botones" class="form-group">
+          <div *ngIf="!buttonSaveEditar"><button class="btn btn-secondary" (click)="guardar()">Guardar</button></div>
+          <div *ngIf="buttonSaveEditar"><button class="btn btn-primary" (click)=" guardarCambios()">Guardar cambios</button></div>
+          <div><button class="btn btn-secondary" style="margin-left: 10px;" (click)="limpiarFormulario()">Cancelar</button></div>
+        </div>
+        <div class="form-group" *ngIf="pLink.value!=null">
+          <h5>Vista Previa</h5>
+          <div class="card" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title">{{pLink.value}}</h5>
+              <p class="card-text">{{pDescripcion.value}}</p>
+              <a class="btn btn-primary" style="color: azure;">Ir al sitio</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-8" id="post">
+      <h5 style="color: beige;">Mis links favoritos <i class="far fa-heart"></i></h5>
+      <div class="row">
+        <div id="viewLinks" *ngFor="let item of nuevoLink,index as i">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #371C56;">{{item.link}}</h5>
+              <p class="card-text">{{item.descripcion}}</p>
+              <a [href]="item.link" target="_blank" class="btn btn-primary"><i class="fas fa-link"></i> Ir al sitio</a>
+              <a class="btn btn-danger" (click)="eliminarLink(i)"><i class="fas fa-trash"></i> Eliminar</a>
+              <a class="btn btn-warning" (click)="editar(i)"><i class="fas fa-edit"></i> Editar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
